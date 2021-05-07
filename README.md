@@ -2,6 +2,8 @@
 
 This Project is Created using TensorFlow, Keras and open-cv to perform live video Facial Expression Detection
 
+Project is Fully functional By using pre-trained models created Using FER-2013 Dataset, However a utility 'training.py' is also providided in order to generate Models from Any other datasets
+
 
 # Getting Started
 To get a local copy up and running follow these simple example steps.
