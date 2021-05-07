@@ -27,7 +27,7 @@ git clone https://github.com/Mohit-Kumar-cloud/Facial-Expression-Recognition-usi
 
 Create a virtual environment
 ```
-python -m virtualenv venv
+python3 -m virtualenv venv
 ```
 Install the requirements
 ```
