@@ -7,7 +7,7 @@ Project is Fully functional By using pre-trained models created Using FER-2013 D
 
 
 # Project Structure
-.
+.  
 |__ Training-Dataset  
 |__ Validation-Dataset  
 |__ training.py  
