@@ -11,8 +11,8 @@ import os
 num_classes=5
 img_rows,Img_cols=48,48
 batch_size=32
-train_data_dir=r'C:\Users\Mohit\Desktop\Semester6\AI\Project\Facial_Expression_Recognition\train'
-validation_data_dir=r'C:\Users\Mohit\Desktop\Semester6\AI\Project\Facial_Expression_Recognition\validation'
+train_data_dir=r'train'
+validation_data_dir=r'validation'
 
 train_datagen = ImageDataGenerator(
                     rescale=1./255,
@@ -116,7 +116,7 @@ print(model.summary())
 
 
 
-checkpoint = ModelCheckpoint(r'C:\Users\Mohit\Desktop\Semester6\AI\Project\Facial_Expression_Recognition\Emotion_little_vgg.h5',
+checkpoint = ModelCheckpoint(r'Emotion_little_vgg.h5',
                              monitor='val_loss',
                              mode='min',
                              save_best_only=True,
@@ -142,9 +142,9 @@ model.compile(loss='categorical_crossentropy',
 
 nb_train_samples = 24176
 nb_validation_samples = 3006
-epochs=25
+epochs=100
 
-history=model.fit_generator(
+history=model.fit(
     train_generator,
     steps_per_epoch=nb_train_samples//batch_size,
     epochs=epochs,
