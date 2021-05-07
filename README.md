@@ -18,7 +18,7 @@ Install the requirements
 ```
 pip install -r requirements.txt
 ```
-To run on a particulor image
+To run on a particular image
 ```
 python detect.py 'path_to_img'
 ```
