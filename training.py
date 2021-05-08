@@ -10,7 +10,7 @@ import os
 
 num_classes=5
 img_rows,Img_cols=48,48
-batch_size=32
+batch_size=64
 train_data_dir=r'train'
 validation_data_dir=r'validation'
 
@@ -124,13 +124,13 @@ checkpoint = ModelCheckpoint(r'Emotion_little_vgg.h5',
 
 earlystop = EarlyStopping(monitor='val_loss',
                           min_delta=0,
-                          patience=3,
+                          patience=5,
                           verbose=1,
                           restore_best_weights=True)
 
 reduce_lr = ReduceLROnPlateau(monitor='val_loss',
                               factor=0.2,
-                              patience=3,
+                              patience=5,
                               verbose=1,
                               min_delta=0.0001)
 
@@ -142,7 +142,7 @@ model.compile(loss='categorical_crossentropy',
 
 nb_train_samples = 24176
 nb_validation_samples = 3006
-epochs=100
+epochs=25
 
 history=model.fit(
     train_generator,
