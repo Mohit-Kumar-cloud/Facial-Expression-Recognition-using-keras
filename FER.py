@@ -4,15 +4,17 @@ from keras.preprocessing.image import img_to_array
 from keras.preprocessing import image
 import cv2 
 import numpy as np
+import sys
 
 face_classifier = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 model =load_model('Emotion_little_vgg.h5')
 
 class_labels = ['Angry','Happy','Neutral','Sad','Surprise']
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 while True:
     # Grab single frame from video
     ret,frame = cap.read()
+    frame=cv2.flip(frame,1)
     labels=[]
     gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
     faces = face_classifier.detectMultiScale(gray,1.3,5)
@@ -39,8 +41,7 @@ while True:
     cv2.imshow('Emotion Detector',frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+
 cap.release()
 cv2.destroyAllWindows()
-
-
-
+sys.exit(0)
