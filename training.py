@@ -137,12 +137,12 @@ reduce_lr = ReduceLROnPlateau(monitor='val_loss',
 callbacks=[earlystop,checkpoint,reduce_lr]
 
 model.compile(loss='categorical_crossentropy',
-              optimizer = Adam(lr=0.001),
+              optimizer = Adam(learning_rate=0.001),
               metrics=['accuracy'])
 
-nb_train_samples = 24176
+nb_train_samples = 24176                                                                                               
 nb_validation_samples = 3006
-epochs=25
+epochs=30
 
 history=model.fit(
     train_generator,
