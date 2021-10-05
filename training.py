@@ -1,10 +1,11 @@
-import keras
-from keras.preprocessing.image import ImageDataGenerator
-from keras.models import Sequential
-from keras.layers import Dense,Dropout,Activation,Flatten,BatchNormalization
-from keras.layers import Conv2D,MaxPooling2D
-from keras.optimizers import RMSprop,SGD,Adam
-from keras.callbacks import ModelCheckpoint,EarlyStopping,ReduceLROnPlateau
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense,Dropout,Activation,Flatten,BatchNormalization
+from tensorflow.keras.layers import Conv2D,MaxPooling2D
+from tensorflow.keras.optimizers import RMSprop,SGD,Adam
+from tensorflow.keras.callbacks import ModelCheckpoint,EarlyStopping,ReduceLROnPlateau
 import os
 
 
@@ -138,7 +139,7 @@ callbacks=[earlystop,checkpoint,reduce_lr]
 
 model.compile(loss='categorical_crossentropy',
               optimizer = Adam(learning_rate=0.001),
-              metrics=['accuracy'])
+              metrics=[tf.keras.metrics.Precision()])
 
 nb_train_samples = 24176                                                                                               
 nb_validation_samples = 3006
